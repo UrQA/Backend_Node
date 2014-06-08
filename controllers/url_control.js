@@ -18,7 +18,7 @@ exports.generateSession = function() {
 exports.connect = function(req, res) {  
   var data = { 'tag':'connect', 'instance_id':"", 'data': req.body };
   var result = {};
-  async.waterfall([  //async.waterfall
+  async.series([  //async.waterfall
     function (cb) {
       var ret = mq_pubhandler.publish(queueName, data);
       //console.log("connect mq log", ret)
@@ -56,7 +56,7 @@ exports.receive_exception = function(req, res) {
   }
 
   var result = {};
-  gk.async.waterfall([
+  async.series([
     function (cb) {
       console.log("--->>>>>", _data); 
       mq_pubhandler.publish(queueName, _data);
@@ -73,7 +73,7 @@ exports.receive_exception = function(req, res) {
 exports.receive_native_dump = function(req, idinstance, res) {  
   var data = { 'tag':'receive_native_dump', 'instance_id':instance, 'data': req.body };
   var result = {};
-  async.waterfall([
+  async.series([
     function (cb) {
       mq_pubhandler.publish(queueName, data);
       cb();
@@ -90,7 +90,7 @@ exports.receive_native = function(req, res) {
   var data = { 'tag':'receive_native', 'instance_id':"", 'data': req.body };
   var result = {};
   
-  async.waterfall([
+  async.series([
     function (cb) {
       mq_pubhandler.publish(queueName, data);
       cb();

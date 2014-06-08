@@ -4,9 +4,8 @@
     "port": 55555,
     "mqExchangeName":"urqa-exchange",
     "mqQueueName":"urqa-queue",
-
     "mq": {
-      "host":"127.0.0.1",
+      "host":"10.12.0.224",
       "port":5672,
       "login":"urqa",
       "password":"urqa",
