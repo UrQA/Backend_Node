@@ -18,7 +18,7 @@ exports.generateSession = function() {
 exports.connect = function(req, res) {  
   var data = { 'tag':'connect', 'instance_id':"", 'data': req.body };
   var result = {};
-  async.series([  //async.waterfall
+  gk.async.sequence([  //async.waterfall
     function (cb) {
       var ret = mq_pubhandler.publish(queueName, data);
       //console.log("connect mq log", ret)
@@ -56,7 +56,7 @@ exports.receive_exception = function(req, res) {
   }
 
   var result = {};
-  async.series([
+  gk.async.sequence([
     function (cb) {
       console.log("--->>>>>", _data); 
       mq_pubhandler.publish(queueName, _data);
@@ -73,7 +73,7 @@ exports.receive_exception = function(req, res) {
 exports.receive_native_dump = function(req, idinstance, res) {  
   var data = { 'tag':'receive_native_dump', 'instance_id':instance, 'data': req.body };
   var result = {};
-  async.series([
+  gk.async.sequence([
     function (cb) {
       mq_pubhandler.publish(queueName, data);
       cb();
@@ -90,7 +90,7 @@ exports.receive_native = function(req, res) {
   var data = { 'tag':'receive_native', 'instance_id':"", 'data': req.body };
   var result = {};
   
-  async.series([
+  gk.async.sequence([
     function (cb) {
       mq_pubhandler.publish(queueName, data);
       cb();
@@ -101,6 +101,24 @@ exports.receive_native = function(req, res) {
   });
 
 };
+
+
+
+exports.url_redirect = function(req,res) {
+ // res.redirect('http://ur-qa.com:9000');
+   gk.async.sequence([
+    function (cb) {
+      res.writeHead(301,
+        { 
+          Location: 'http://ur-qa.com:9000/' 
+        });
+        res.end();    
+    }
+  ], function (err) {
+    res.send(result);
+  });
+};
+
 
 /*
 exports.receive_eventpath = function(req, res) {  
@@ -138,23 +156,5 @@ exports.receive_exception_log = function(req, idinstance, res) {
   });
 };
 */
-
-
-exports.url_redirect = function(req,res) {
- // res.redirect('http://ur-qa.com:9000');
-   async.waterfall([
-    function (cb) {
-      res.writeHead(301,
-        { 
-          Location: 'http://ur-qa.com:9000/' 
-        });
-        res.end();    
-    }
-  ], function (err) {
-    res.send(result);
-  });
-};
-
-
 
 
