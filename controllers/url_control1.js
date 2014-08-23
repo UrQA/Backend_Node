@@ -231,42 +231,5 @@ exports.url_redirect = function(req,res) {
 };
 
 
-/*
- exports.receive_eventpath = function(req, res) {
-
- var data = { 'tag':'receive_eventpath','instance_id':"", 'data': req.body };
- var result = {};
-
- async.waterfall([
- function (cb) {
- mq_pubhandler.publish(queueName, data);
- cb();
- }
- ], function (err) {
- result = { 'state': 'success'};
- res.send(result);
- });
-
- };
- */
-
-
-/*
- exports.receive_exception_log = function(req, idinstance, res) {
- var data = { 'tag':'receive_exception_log', 'instance_id':instance, 'data': req.body };
- var result = {};
-
- async.waterfall([
- function (cb) {
- mq_pubhandler.publish(queueName, data);
- cb();
- }
- ], function (err) {
- result = { 'state': 'success'};
- res.send(result);
- });
- };
- */
-
 
 

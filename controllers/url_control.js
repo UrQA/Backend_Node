@@ -149,52 +149,7 @@ exports.url_redirect = function(req,res) {
     });
 };
 
-/*
- exports.receive_native_dump = function(req, res) {
 
- var dumpId = req.query.dumpId;
- //var buffer = BSON.serialize(req.body)
- //# step 1 - 1 make binary
- var binaryData= ''
- req.setEncoding('binary')
-
- req.on('data', function(chunk){
- binaryData += chunk
- });
-
- req.on('end', function(){
- console.log('File saved.');
- //# step 1 -2 : this is process to input binaryData into json
- //var encodedData = BSON.serialize(binaryData);
- var encodedData = binaryData;
-
- var data = {'tag':'receive_native_dump','data':encodedData,'date_time':get_cur_time()};
- console.log("data ------------->"+data.data);
- console.log("data type -------->" + typeof(data.data));
- //# step 2 : send data to rabbit mq
- gk.async.sequence([
- function (cb) {
- console.log("before pub");
- mq_pubhandler.publish(queueName, data);
- cb();
- console.log("receive_native_dump");
- }
- ], function (err) {
- res.send("success");
- });
-
- });
- };
-
- exports.generateSession = function() {
- var id_session = "";
- for (var i = 0; i < 9; i++) {
- var rand = Math.floor(Math.random() * CHAR_RANGE.length);
- id_session += CHAR_RANGE.substring(rand, rand +1);
- }
- return id_session;
- };
- */
 
 
 
