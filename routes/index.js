@@ -3,6 +3,8 @@
  */
 'use strict'
 var url_control = require(__dirname + '/../controllers/url_control');
+var url_control_jsonp = require(__dirname + '/../controllers/url_control_jsonp');
+
 var routes = function(app) {
     /*
     this is for legact rest apis for android
@@ -11,6 +13,15 @@ var routes = function(app) {
     app.post('/urqa/client/send/exception', url_control.receive_exception);
     app.post('/urqa/client/send/exception/native', url_control.receive_native);
     app.post('/test/',url_control.receive_test_data);
+
+
+    /**
+     * add jsonp wrapper url
+     *
+     *      2014.09.13  famersbs
+     */
+    app.post('/urqa/client/jsonp', url_control_jsonp.jsonp_wrapper );
+
     /*
     this is for new rest apis for android, ios, unity, cordova
      */
