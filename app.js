@@ -1,5 +1,7 @@
 'use strict';
 var gk = require('./common');
+var fs = require('fs');
+
 process.env.TZ = 'Asia/Seoul';
 
 // express
@@ -21,5 +23,18 @@ app.configure(function() {
 var router = require('./routes');
 router.route(app);
 
-app.listen(gk.config.port);
-console.log("Server started at port " + gk.config.port);
+/////////////////////////////////////////////////////////////////
+// HTTP & HTTPS support
+var http = require('http');
+// Create an HTTP service.
+http.createServer(app).listen(gk.config.port);
+console.log("Server started at port (http) " + gk.config.port);
+
+var https = require('https');
+var https_options = {
+  key: fs.readFileSync(__dirname + '/config/https/server.key'),
+  cert: fs.readFileSync(__dirname + '/config/https/server.crt')
+};
+// Create an HTTPS service identical to the HTTP service.
+https.createServer(https_options, app).listen(gk.config.httpsport);
+console.log("Server started at port (https) " + gk.config.httpsport);

@@ -3,15 +3,16 @@
     "dev": true,
     "host": "0.0.0.0",
     "port": 49999,
+    "httpsport" : 49998,
     "mqExchangeName":"test.exchange",
     "mqQueueName":"test.queue",
     "mq": {
-    "host":"10.12.0.224",
-    "port":5672,
-    "login":"urqa",
-    "password":"urqa",
-    "authMechanism":"AMQPLAIN",
-    "vhost":"/"
+        "host":"10.12.0.224",
+        "port":5672,
+        "login":"urqa",
+        "password":"urqa",
+        "authMechanism":"AMQPLAIN",
+        "vhost":"/"
     },
     "clientType":
     [
