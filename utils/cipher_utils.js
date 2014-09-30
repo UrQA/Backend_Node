@@ -1,5 +1,4 @@
 'user strict';
-
 // module
 var crypto = require('crypto');
 var INITIALIZE_VECTOR = '0000000000000000';
@@ -7,44 +6,10 @@ var CHIPER_TYPE = 'aes-256-cbc';
 var ENCODE_TYPE = 'base64';
 
 
-//  암호화
-exports.encrypt_wallaby = function(str, key) {
-  try {
-    var cipher = crypto.createCipheriv(CHIPER_TYPE, key, INITIALIZE_VECTOR);
-
-    var result = cipher.update(str, 'utf8') + cipher.final();
-    console.log('res1: ' + result);
-
-    var ret = new Buffer(result, 'binary');
-
-    return ret.toString(ENCODE_TYPE);
-  } catch (e) {
-    return null;
-  }
-}
-
-// 복호화
-exports.decrypt_wallaby = function(str, key) {
-  try {
-    var decoded = new Buffer(str, ENCODE_TYPE);
-    var decipher = crypto.createDecipheriv(CHIPER_TYPE, key, INITIALIZE_VECTOR, decoded);
-    var result = decipher.update(decoded, 'binary') + decipher.final();
-
-    var ret = new Buffer(result, 'binary');
-    console.log('res2: ' + ret.toString('utf8'));
-    return ret.toString('utf8');
-  } catch (e) {
-    return null;
-  }
-}
-
-
-//=====================================================================
-//=====================================================================
-// Constant
 var HASH_TYPE         = 'sha256';
-var HASH_UPDATE_DATA  = 'GumiKoreaNumberONE!!!';
+var HASH_UPDATE_DATA  = 'urqa_service_NumberONE!!!';
 var KEY = crypto.createHash(HASH_TYPE).update(HASH_UPDATE_DATA).digest();
+
 exports.encrypt = function(str) {
   try {
     var cipher = crypto.createCipheriv(CHIPER_TYPE, KEY, INITIALIZE_VECTOR);

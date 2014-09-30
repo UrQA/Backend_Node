@@ -153,7 +153,6 @@ exports.url_redirect = function(req,res) {
 /** wrapping **/
 var Client = require('node-rest-client').Client;
 var client = new Client();
-/** wrapping **/
 exports.jsonp_wrapper = function(req, res) {
 
     var uri = req.query.uri;    // 이 부분을 변경 해야 할듯 --> 형식을 바꿀필요가 있음
