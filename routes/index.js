@@ -20,7 +20,7 @@ var routes = function(app) {
      *
      *      2014.09.13  famersbs
      */
-    app.post('/urqa/client/jsonp', url_control_jsonp.jsonp_wrapper );
+    app.get('/urqa/client/jsonp', url_control_jsonp.jsonp_wrapper );
 
     /*
     this is for new rest apis for android, ios, unity, cordova
