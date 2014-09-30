@@ -4,11 +4,9 @@ var _helper        = require(__dirname + '/../utils/helper');
 
 module.exports = function() {
   return function(req, res, next) {    
-    gk.log.debug('[REQUEST URL] ',      req.url);
-    gk.log.debug('[REQUEST PARAMS] ', req.body);
-    
+    //gk.log.debug('[REQUEST URL] ',      req.url);
+    //gk.log.debug('[REQUEST PARAMS] ', req.body);
     req.body.url = req.url;
-
     if (isNotNeedToBeChecked(req.url)) {
       return next();
     }
