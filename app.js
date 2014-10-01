@@ -16,12 +16,12 @@ var app = express();
 	app.use(express.cookieParser());
 	app.use(express.compress());
 	app.use(errorHandler());
-	app.use(checkerMidleware());
+	//app.use(checkerMidleware());
 });
 
 // Database must be initialized.
-var database = require('./database');
-database.init(gk.store.database);
+//var database = require('./database');
+//database.init(gk.store.database);
 
 // router
 var router = require('./routes');
