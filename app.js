@@ -4,22 +4,27 @@ process.env.TZ = 'Asia/Seoul';
 
 // express
 var express = require('express');
-var errorHandler = require('./middleware/error_handler');
+var errorHandler = require('./middleware/error');
+var checkerMidleware = require('./middleware/checker');
 
 // app
 var app = express();
-app.configure(function() {
-    app.set('view engine', 'jade');
-    app.locals.pretty = true;
-    app.use(express.bodyParser());
-    app.use(express.cookieParser());
-    app.use(express.compress());
-    app.use(errorHandler());
+	app.configure(function() {
+	app.set('view engine', 'jade');
+	app.locals.pretty = true;
+	app.use(express.bodyParser());
+	app.use(express.cookieParser());
+	app.use(express.compress());
+	app.use(errorHandler());
+	//app.use(checkerMidleware());
 });
+
+// Database must be initialized.
+//var database = require('./database');
+//database.init(gk.store.database);
 
 // router
 var router = require('./routes');
 router.route(app);
-
 app.listen(gk.config.port);
 console.log("Server started at port " + gk.config.port);
