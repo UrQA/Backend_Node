@@ -1,47 +1,23 @@
 {
-    "dev": true,
-    "host": "0.0.0.0",
-<<<<<<< HEAD
-    "port": 49999,
-    "httpsport" : 49998,
-    "mqExchangeName":"test.exchange",
-    "mqQueueName":"test.queue",
-    "mq": {
-        "host":"10.12.0.224",
-        "port":5672,
-        "login":"urqa",
-        "password":"urqa",
-        "authMechanism":"AMQPLAIN",
-        "vhost":"/"
-    },
-    "clientType":
-    [
-        "android",
-        "ios",
-        "cordova",
-        "unity"
-    ]
-=======
-    "port": 55555,
-    "server_url": "http://192.168.0.18:55555",
-    "static_url": "http://192.168.0.18:8000/wb/AssetBundle/",
-    "notice_url": "http://www.playgumi.com/event/notice.php",
-    "logging": [
-      {
-        "level": "verbose",
-        "type": "Console",
-        "colorize": true,
-        "timestamp": true
-      },
-      {
-        "level": "file",
-        "type": "File",
-        "timestamp": true,  
-        "filename": "/dev/null"
-      }
-    ],
-    "sql": [ { "name": "COMMON"} ]
->>>>>>> develop
+	"dev": true,
+	"host": "0.0.0.0",
+	"port": 55555,
+	"server_url": "http://192.168.0.18:55555",
+	"static_url": "http://192.168.0.18:8000/wb/AssetBundle/",
+	"notice_url": "http://www.playgumi.com/event/notice.php",
+	"logging": [
+		{
+		"level": "verbose",
+		"type": "Console",
+		"colorize": true,
+		"timestamp": true
+		},
+		{
+		"level": "file",
+		"type": "File",
+		"timestamp": true,
+		"filename": "/dev/null"
+		}
+	],
+	"sql": [ { "name": "COMMON"} ]
 }
-
-
