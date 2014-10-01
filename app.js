@@ -5,7 +5,6 @@ process.env.TZ = 'Asia/Seoul';
 // express
 var express = require('express');
 var errorHandler = require('./middleware/error');
-var checkerMidleware = require('./middleware/checker');
 
 // app
 var app = express();
@@ -16,13 +15,7 @@ var app = express();
 	app.use(express.cookieParser());
 	app.use(express.compress());
 	app.use(errorHandler());
-	//app.use(checkerMidleware());
 });
-
-// Database must be initialized.
-//var database = require('./database');
-//database.init(gk.store.database);
-
 // router
 var router = require('./routes');
 router.route(app);

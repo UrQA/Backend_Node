@@ -2,9 +2,9 @@
 	"dev": true,
 	"host": "0.0.0.0",
 	"port": 55555,
-	"server_url": "http://192.168.0.18:55555",
-	"static_url": "http://192.168.0.18:8000/wb/AssetBundle/",
-	"notice_url": "http://www.playgumi.com/event/notice.php",
+	"server_url": "",
+	"static_url": "",
+	"notice_url": "",
 	"logging": [
 		{
 		"level": "verbose",
