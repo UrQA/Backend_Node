@@ -149,52 +149,33 @@ exports.url_redirect = function(req,res) {
     });
 };
 
-/*
- exports.receive_native_dump = function(req, res) {
 
- var dumpId = req.query.dumpId;
- //var buffer = BSON.serialize(req.body)
- //# step 1 - 1 make binary
- var binaryData= ''
- req.setEncoding('binary')
+/** wrapping **/
+var Client = require('node-rest-client').Client;
+var client = new Client();
+exports.jsonp_wrapper = function(req, res) {
 
- req.on('data', function(chunk){
- binaryData += chunk
- });
+    var uri = req.query.uri;    // 이 부분을 변경 해야 할듯 --> 형식을 바꿀필요가 있음
+    var data = req.query.data;
 
- req.on('end', function(){
- console.log('File saved.');
- //# step 1 -2 : this is process to input binaryData into json
- //var encodedData = BSON.serialize(binaryData);
- var encodedData = binaryData;
+    if( null == uri ){
+        res.jsonp( {error:"Not enought argument"} );
+        return;
+    }
 
- var data = {'tag':'receive_native_dump','data':encodedData,'date_time':get_cur_time()};
- console.log("data ------------->"+data.data);
- console.log("data type -------->" + typeof(data.data));
- //# step 2 : send data to rabbit mq
- gk.async.sequence([
- function (cb) {
- console.log("before pub");
- mq_pubhandler.publish(queueName, data);
- cb();
- console.log("receive_native_dump");
- }
- ], function (err) {
- res.send("success");
- });
+    var args = {
+        data:data,
+        headers:{"Content-Type": "application/json; charset=utf-8"}
+    };
 
- });
- };
-
- exports.generateSession = function() {
- var id_session = "";
- for (var i = 0; i < 9; i++) {
- var rand = Math.floor(Math.random() * CHAR_RANGE.length);
- id_session += CHAR_RANGE.substring(rand, rand +1);
- }
- return id_session;
- };
- */
+    client.post( uri, args, function(data, response){
+        // parsed response body as js object
+        // raw response
+        res.header('Content-type','application/json');
+        res.header('Charset','utf8');
+        res.jsonp( data );
+    });
+}
 
 
 
