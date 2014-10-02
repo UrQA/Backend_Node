@@ -17,4 +17,3 @@ ProguardHandler.proguard_obfuscation = function( ,callback) {
 		});	
 	child.kill('SIGHUP');
 }
-
