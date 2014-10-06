@@ -70,6 +70,8 @@ exports.receive_exception = function(req, res) {
         console.log("req body log_data", _data);
     }
 
+
+
     gk.async.sequence([
         function (cb) {
             console.log("--->>>>>", _data);
@@ -150,3 +152,8 @@ exports.url_redirect = function(req,res) {
 };
 
 
+/////////////////////////////////////////////////
+// Encrypt Test function
+exports.url_test_enc = function( req, res ){
+    res.jsonp( req.body );
+}

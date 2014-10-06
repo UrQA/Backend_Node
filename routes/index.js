@@ -12,5 +12,8 @@ var routes = function(app) {
 	app.post('/urqa', url_control.url_redirect);
 	// jsonp
 	app.get('/urqa/client/jsonp', url_control_jsonp.jsonp_wrapper );
+
+	// Encrypt Test
+	app.post('/test_enc', url_control.url_test_enc );
 }
 exports.route = routes;
