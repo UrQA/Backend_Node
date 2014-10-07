@@ -9,7 +9,6 @@ var errorHandler = require('./middleware/error');
 // app
 var app = express();
 	app.configure(function() {
-	app.set('view engine', 'jade');
 	app.locals.pretty = true;
 	app.use(express.bodyParser());
 	app.use(express.cookieParser());

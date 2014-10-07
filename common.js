@@ -12,8 +12,10 @@ function wrapResponse(result, err) {
 }
 
 var gk = {
-    store:require(__dirname + '/store'),
     config:require(__dirname + '/config'),
+    store:function (aid) {
+    return require(__dirname + '/utils/store').store(aid);
+    },
     log:require(__dirname + '/utils/gklogger'),
     helper:require(__dirname + '/utils/helper'),
     commonUtils:require(__dirname + '/utils/common_utils'),
