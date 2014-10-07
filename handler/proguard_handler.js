@@ -1,10 +1,8 @@
 
 'use strict';
 var exec = require('child_process').exec, child;
-
 var ProguardHandler = exports;
-var self = ProguardHandler;    
-
+var self = ProguardHandler;
 
 ProguardHandler.proguard_obfuscation = function( ,callback) {
 	child = exec('/usr/bin/java -jar ~/Applications/example.jar',
@@ -17,4 +15,3 @@ ProguardHandler.proguard_obfuscation = function( ,callback) {
 		});	
 	child.kill('SIGHUP');
 }
-
