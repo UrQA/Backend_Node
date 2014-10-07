@@ -23,7 +23,7 @@ var gk = {
     cipherUtils:require(__dirname + '/utils/cipher_utils'),
     paramUtils:require(__dirname + '/utils/param_convert'),
     chanceUtils:require(__dirname + '/utils/chance_utils'),
-    async: new (require('gkasync')),
+    async: new (require('pasync')),
     result: function(err) {
         var result = {};
         if (err) {
