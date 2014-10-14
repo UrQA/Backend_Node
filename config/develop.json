@@ -19,5 +19,16 @@
 		"filename": "/dev/null"
 		}
 	],
-	"sql": [ { "name": "COMMON"} ]
+	"redis": {
+		"namespace": "dev",
+		"master": [
+		{
+			"host": "127.0.0.1",
+        	"port": 6379,
+        	"pass": "",
+        	"namespace": "dev"
+        }
+      ]
+    }
+
 }

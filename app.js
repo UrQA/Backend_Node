@@ -10,8 +10,12 @@ var encryptHandler = require('./middleware/encrypt');
 // app
 var app = express();
 	app.configure(function() {
+<<<<<<< HEAD
 	app.set('view engine', 'jade');
 	app.locals.pretty = true;	
+=======
+	app.locals.pretty = true;
+>>>>>>> origin/master
 	app.use(express.bodyParser());
 	app.use(express.cookieParser());
 	app.use(express.compress());

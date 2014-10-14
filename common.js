@@ -12,8 +12,10 @@ function wrapResponse(result, err) {
 }
 
 var gk = {
-    store:require(__dirname + '/store'),
     config:require(__dirname + '/config'),
+    store:function (aid) {
+    return require(__dirname + '/utils/store').store(aid);
+    },
     log:require(__dirname + '/utils/gklogger'),
     helper:require(__dirname + '/utils/helper'),
     commonUtils:require(__dirname + '/utils/common_utils'),
@@ -21,7 +23,7 @@ var gk = {
     cipherUtils:require(__dirname + '/utils/cipher_utils'),
     paramUtils:require(__dirname + '/utils/param_convert'),
     chanceUtils:require(__dirname + '/utils/chance_utils'),
-    async: new (require('gkasync')),
+    async: new (require('pasync')),
     result: function(err) {
         var result = {};
         if (err) {

@@ -65,6 +65,7 @@ exports.xorDecrypt = function(key, str) {
   return decrypted.toString('utf-8');
 };
 
+/*
 // Xor 테스트 
 var text = 'Hello';
 var encText = exports.encrypt(text);
@@ -80,4 +81,5 @@ console.log('--------------------');
 console.log(encText);
 console.log(decText);
 console.log('--------------------');
+*/
 
