@@ -10,6 +10,10 @@ var routes = function(app) {
 	app.post('/test/',url_control.receive_test_data);
 	app.get('/$',url_control.url_redirect);
 	app.post('/urqa', url_control.url_redirect);
+
+	// encrypt
+	app.post('/urqa/client/getenctoken', url_control.url_getenctoken );
+
 	// jsonp
 	app.get('/urqa/client/jsonp', url_control_jsonp.jsonp_wrapper );
 

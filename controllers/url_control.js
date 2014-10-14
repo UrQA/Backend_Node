@@ -7,6 +7,8 @@ var mq_pubhandler = require('../handler/mq_pubhandler');
 var queueName = gk.config.mqQueueName;
 var sprintf = require("sprintf").sprintf;
 
+var enckey_manager = require( "../utils/enckey_manager");
+
 var get_cur_time = function() {
     var date = new Date(Date.now());
     var year = date.getFullYear();
@@ -23,7 +25,6 @@ var get_cur_time = function() {
 
 exports.connect = function(req, res) {
     var data = { 'tag':'connect','data': req.body,'date_time': get_cur_time()};
-
     //# set queue name for worker and queue
     /*
     var client_type = req.query.client_type;
@@ -36,7 +37,7 @@ exports.connect = function(req, res) {
             cb();
         }
     ], function (err) {
-        var result = { 'state': 'success'};
+        var result = { 'state': 'success' };
         res.send(result);
     });
 }
@@ -149,6 +150,26 @@ exports.url_redirect = function(req,res) {
     ], function (err) {
         res.send(result);
     });
+};
+
+//////////////////////////////////////////////////
+// Encrypt Token get
+exports.url_getenctoken = function( req, res ) {
+
+    // Encrypt Logic by 서병선
+    var apikey = req.body.apikey;
+    if( null == apikey ){
+        res.send( { 'state': 'fail', 'reason': 'we need apikey'} );
+        return;
+    }
+
+    enckey_manager.getEncToken( apikey, true, function( enctoken ){
+
+        var result = { 'state': 'success', 'enctoken' : enctoken };
+        res.send(result);
+
+    } );
+    
 };
 
 
