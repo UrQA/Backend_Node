@@ -7,7 +7,6 @@ var TokenHandler = exports;
 var self = TokenHandler;
 var ns   = gk.config.redis.namespace;
 
-
 self.getTokenKey = function(aid) {
     return 'ns:token:' + aid;
 };
