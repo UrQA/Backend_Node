@@ -12,13 +12,9 @@ var KEY = crypto.createHash(HASH_TYPE).update(HASH_UPDATE_DATA).digest();
 
 exports.encrypt = function(str) {
   try {
-    var cipher = crypto.createCipheriv(CHIPER_TYPE, KEY, INITIALIZE_VECTOR);
-    var result = cipher.update(str, 'utf8') + cipher.final();
-    console.log('res1: ' + result);
-
-    var ret = new Buffer(result, 'binary');
-
-    return ret.toString(ENCODE_TYPE);
+    var cipher = crypto.createCipheriv(CHIPER_TYPE, KEY, INITIALIZE_VECTOR );
+    var result = cipher.update(str, 'utf8', ENCODE_TYPE) + cipher.final( ENCODE_TYPE );
+    return result;
   } catch (e) {
     return null;
   }
@@ -27,14 +23,9 @@ exports.encrypt = function(str) {
 
 exports.decrypt = function(str) {
   try {
-    var decoded = new Buffer(str, ENCODE_TYPE);
-    var decipher = crypto.createDecipheriv(CHIPER_TYPE, KEY, INITIALIZE_VECTOR, decoded);
-    var result = decipher.update(decoded, 'binary') + decipher.final();
-
-    var ret = new Buffer(result, 'binary');
-    console.log('res1: ' + ret.toString('utf8'));
-
-    return ret.toString('utf8');
+    var decipher = crypto.createDecipheriv(CHIPER_TYPE, KEY, INITIALIZE_VECTOR );
+    var result = decipher.update(str, ENCODE_TYPE, 'utf8') + decipher.final('utf8');
+    return result;
   } catch (e) {
     return null;
   }

@@ -11,9 +11,7 @@
 exports.getEncToken = function( apikey, isCreate, cb ) {
   
   	// 일단 무조건 고정 키 리턴
+  	//cb( "urqa_service_NumberONE!!!" );
   	cb( "urqa_service_NumberONE!!!" );
 	
-
-	//return "urqa_service_NumberONE!!!";
-
 }

@@ -1,11 +1,6 @@
 'use strict';
 
-var CryptoJS = require("crypto-js");
-
-var INITIALIZE_VECTOR 	= '0000000000000000';
-var CHIPER_TYPE   		= 'aes-256-cbc';
-var iv  				= CryptoJS.enc.Hex.parse( INITIALIZE_VECTOR );
-
+var cipher = require("../utils/cipher_utils")
 var enckey_manager = require( "../utils/enckey_manager");
 
 /* https://www.npmjs.org/package/crypto-js */
@@ -44,10 +39,7 @@ module.exports = function() {
 
 				}else{
 
-					var KEY = CryptoJS.SHA256( token );
-
-					var decdata = CryptoJS.AES.decrypt( encdata, KEY, { iv: iv } )
-											  	.toString( CryptoJS.enc.Utf8 );
+					var decdata = cipher.decrypt( encdata );
 
 					// change encrypt body to src data
 					req.body = JSON.parse(decdata);
