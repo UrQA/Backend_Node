@@ -20,7 +20,6 @@ exports.encrypt = function(str) {
   }
 }
 
-
 exports.decrypt = function(str) {
   try {
     var decipher = crypto.createDecipheriv(CHIPER_TYPE, KEY, INITIALIZE_VECTOR );
