@@ -5,6 +5,16 @@
 	"server_url": "",
 	"static_url": "",
 	"notice_url": "",
+	"mqExchangeName":"logger-exchange",
+    "mqQueueName":"logger-queue",
+    "mq": {
+      "host":"192.168.0.14",
+      "port":5672,
+      "login":"gumidev",
+      "password":"gumikorea",
+      "authMechanism":"AMQPLAIN",
+      "vhost":"/"
+    },
 	"logging": [
 		{
 		"level": "verbose",
