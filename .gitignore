@@ -1,1 +1,3 @@
 node_modules/crypto-js
+node_modules/node-rest-client
+node_modules/node-rsa

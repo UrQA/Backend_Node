@@ -5,6 +5,7 @@
   "description": "UrQA Node Server ",
   "author": "UrQA",
   "dependencies": {
-    "node-rest-client": ""
+    "node-rest-client": "",
+    "node-rsa":""
   }
 }

@@ -21,9 +21,16 @@ exports.encrypt = function(str) {
 }
 
 
-exports.decrypt = function(str) {
+exports.decrypt = function(str, basekey) {
+  
+  // default key set
+  if( null == basekey || undefined == basekey ){
+    basekey = HASH_UPDATE_DATA;
+  }
+
   try {
-    var decipher = crypto.createDecipheriv(CHIPER_TYPE, KEY, INITIALIZE_VECTOR );
+    var KEY_D = crypto.createHash(HASH_TYPE).update(basekey).digest();
+    var decipher = crypto.createDecipheriv(CHIPER_TYPE, KEY_D, INITIALIZE_VECTOR );
     var result = decipher.update(str, ENCODE_TYPE, 'utf8') + decipher.final('utf8');
     return result;
   } catch (e) {

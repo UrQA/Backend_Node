@@ -3,8 +3,6 @@
 var cipher = require("../utils/cipher_utils")
 var enckey_manager = require( "../utils/enckey_manager");
 
-/* https://www.npmjs.org/package/crypto-js */
-
 module.exports = function() {
 
 	console.log('Enabled Encrypt');
@@ -22,32 +20,28 @@ module.exports = function() {
 		if( req.headers['urqa-encrypt-opt'] ){
 			/*
 			 * encrypt request format sample
-			 * 	{ apikey:"key", encdata: "encrypt ,,,", src_len: 1111 }
+			 * 	{ token:"token", enc_data: "encrypt ,,,", src_len: 1111 }
 			 */
-			var apikey = req.body.apikey;
-			var encdata = req.body.encdata;
+			var token = req.body.token;
+			var enc_data = req.body.enc_data;
 			var src_len = req.body.src_len;
 
-			// get token
-			enckey_manager.getEncToken( apikey, false, function( token ){
+			enckey_manager.get_key_use_token( token, function( iscontained, basekey ){
 
-				if( null == token ){
+				if( null == basekey ){
 
 					// token is null...
-					var result = { 'state': 'fail', 'reson' : 'Token Create Fail' };
-        			res.status(406).send(result);
+					var result = { 'result': 'fail', 'reson' : 'Token Create Fail' };
+					res.status(406).send(result);
 
 				}else{
 
-					var decdata = cipher.decrypt( encdata );
-
-					// change encrypt body to src data
-					req.body = JSON.parse(decdata);
+					var decdata = cipher.decrypt( enc_data, basekey );
+					req.body = JSON.parse( decdata );
 					next();
 
 				}
-			} );	// 이 부분을 async 하게 바꿔야 한다... 
-
+			});
 
 		} else {
 			next();

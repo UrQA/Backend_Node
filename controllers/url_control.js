@@ -152,29 +152,3 @@ exports.url_redirect = function(req,res) {
     });
 };
 
-//////////////////////////////////////////////////
-// Encrypt Token get
-exports.url_getenctoken = function( req, res ) {
-
-    // Encrypt Logic by 서병선
-    var apikey = req.body.apikey;
-    if( null == apikey ){
-        res.send( { 'state': 'fail', 'reason': 'we need apikey'} );
-        return;
-    }
-
-    enckey_manager.getEncToken( apikey, true, function( enctoken ){
-
-        var result = { 'state': 'success', 'enctoken' : enctoken };
-        res.send(result);
-
-    } );
-    
-};
-
-
-/////////////////////////////////////////////////
-// Encrypt Test function
-exports.url_test_enc = function( req, res ){
-    res.jsonp( req.body );
-}
