@@ -7,8 +7,6 @@ var mq_pubhandler = require('../handler/mq_pubhandler');
 var queueName = gk.config.mqQueueName;
 var sprintf = require("sprintf").sprintf;
 
-var enckey_manager = require( "../utils/enckey_manager");
-
 var get_cur_time = function() {
     var date = new Date(Date.now());
     var year = date.getFullYear();
