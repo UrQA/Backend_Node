@@ -42,8 +42,8 @@ exports.connect = function(req, res) {
     });
 }
 
-exports.receive_exception = function(req, res) {
 
+exports.receive_exception = function(req, res) {
     //console.log("exception Data 2 ->", req.body.exception);
     //console.log("console log Data->", req.body.console_log);
     var _id = req.body.instance;
@@ -51,6 +51,7 @@ exports.receive_exception = function(req, res) {
     var _data  = {};
 
     //# set queue name for worker and queue
+    
     /*
     var client_type = req.query.client_type;
     var queueName = queueName;
