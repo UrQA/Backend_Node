@@ -20,8 +20,6 @@ exports.encrypt = function(str) {
   }
 }
 
-<<<<<<< HEAD
-
 exports.decrypt = function(str, basekey) {
   
   // default key set
@@ -32,11 +30,6 @@ exports.decrypt = function(str, basekey) {
   try {
     var KEY_D = crypto.createHash(HASH_TYPE).update(basekey).digest();
     var decipher = crypto.createDecipheriv(CHIPER_TYPE, KEY_D, INITIALIZE_VECTOR );
-=======
-exports.decrypt = function(str) {
-  try {
-    var decipher = crypto.createDecipheriv(CHIPER_TYPE, KEY, INITIALIZE_VECTOR );
->>>>>>> origin/master
     var result = decipher.update(str, ENCODE_TYPE, 'utf8') + decipher.final('utf8');
     return result;
   } catch (e) {

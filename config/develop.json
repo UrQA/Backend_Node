@@ -14,11 +14,7 @@
       "password":"urqa",
       "authMechanism":"AMQPLAIN",
       "vhost":"/"
-<<<<<<< HEAD
-    },	
-=======
     },
->>>>>>> origin/master
 	"logging": [
 		{
 		"level": "verbose",
