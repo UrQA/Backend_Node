@@ -5,6 +5,16 @@
 	"server_url": "",
 	"static_url": "",
 	"notice_url": "",
+	"mqExchangeName":"test-exchange",
+    "mqQueueName":"test-queue", 
+    "mq": {
+      "host":"127.0.0.1",
+      "port":5672,
+      "login":"urqa",
+      "password":"urqa",
+      "authMechanism":"AMQPLAIN",
+      "vhost":"/"
+    },	
 	"logging": [
 		{
 		"level": "verbose",
