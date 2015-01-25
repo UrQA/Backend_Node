@@ -28,30 +28,20 @@ process.addListener('exit', function () {
 
 exports.publish = function(queueName, msg) {
   var retVal;
-  //console.log('pushData :', msg);
-
   retry = retry || 0;
   if (retry > MAX_RETRY_COUNT){ 
     return; 
   }
-  
-  //if (!_isReady) {
-    // TODO: use backoff or wait for it
-    //process.nextTick(function() { exports.publish(exports.LOGER_QUEUE_NAME , msg, retry + 1); });
-    //console.log('nextTick RETURN !!!');
-  //}
 
   if (_queue.hasOwnProperty(queueName)) {
     //console.log("publishing message");
     var ex = _queue[queueName];
     ex.publish(queueName, msg);
-    //console.log(queueName);
     return;
   } else {
     // TODO: binding queue automatically
     _isReady = false;
-    //console.log("WhatTheHuck? Couldn't find the queue");
-    callback(_isReady);
+    return;
   }
 };
 
