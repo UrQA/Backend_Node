@@ -5,13 +5,13 @@
 	"server_url": "",
 	"static_url": "",
 	"notice_url": "",
-	"mqExchangeName":"test-exchange",
-    "mqQueueName":"test-queue", 
+	"mqExchangeName":"urqa-exchange",
+        "mqQueueName":"urqa-queue", 
     "mq": {
       "host":"127.0.0.1",
       "port":5672,
       "login":"urqa",
-      "password":"urqa",
+      "password":"!@urqa2014*",
       "authMechanism":"AMQPLAIN",
       "vhost":"/"
     },
@@ -33,7 +33,7 @@
 		"namespace": "dev",
 		"master": [
 		{
-			"host": "127.0.0.1",
+		"host": "127.0.0.1",
         	"port": 6379,
         	"pass": "",
         	"namespace": "dev",

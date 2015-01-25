@@ -38,8 +38,8 @@ exports.publish = function(queueName, msg) {
   if (!_isReady) {
     // TODO: use backoff or wait for it
     process.nextTick(function() { exports.publish(exports.LOGER_QUEUE_NAME , msg, retry + 1); });
-    console.log('nextTick RETURN !!!');
-    return;
+    //console.log('nextTick RETURN !!!');
+    callback(_isReady);
   }
 
   if (_queue.hasOwnProperty(queueName)) {
@@ -51,7 +51,7 @@ exports.publish = function(queueName, msg) {
   } else {
     // TODO: binding queue automatically
     _isReady = false;
-    console.log("WhatTheHuck? Couldn't find the queue");
+    //console.log("WhatTheHuck? Couldn't find the queue");
     callback(_isReady);
   }
 };
