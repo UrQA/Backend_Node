@@ -35,12 +35,11 @@ exports.publish = function(queueName, msg) {
     return; 
   }
   
-  if (!_isReady) {
+  //if (!_isReady) {
     // TODO: use backoff or wait for it
-    process.nextTick(function() { exports.publish(exports.LOGER_QUEUE_NAME , msg, retry + 1); });
+    //process.nextTick(function() { exports.publish(exports.LOGER_QUEUE_NAME , msg, retry + 1); });
     //console.log('nextTick RETURN !!!');
-    callback(_isReady);
-  }
+  //}
 
   if (_queue.hasOwnProperty(queueName)) {
     //console.log("publishing message");
