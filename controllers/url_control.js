@@ -23,16 +23,13 @@ var get_cur_time = function() {
 
 exports.connect = function(req, res) {
     var data = { 'tag':'connect','data': req.body,'date_time': get_cur_time()};
-<<<<<<< HEAD
     
-=======
     //# set queue name for worker and queue
     /*
     var client_type = req.query.client_type;
     var queueName = queueName;
     if(client_type) queueName = client_type;
     */
->>>>>>> c042354a52ad7f7fede496c14c5c420b73935840
     gk.async.sequence([  //async.waterfall
         function (cb) {
             var ret = mq_pubhandler.publish(queueName, data);

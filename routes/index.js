@@ -1,12 +1,8 @@
 'use strict'
 var url_control = require(__dirname + '/../controllers/url_control');
 var url_control_jsonp = require(__dirname + '/../controllers/url_control_jsonp');
-<<<<<<< HEAD
-//hello
-=======
 var url_control_enc = require(__dirname + '/../controllers/url_control_enc');
 
->>>>>>> c042354a52ad7f7fede496c14c5c420b73935840
 var routes = function(app) {
 	// this is for legact rest apis for android
 	app.post('/urqa/client/connect', url_control.connect);
