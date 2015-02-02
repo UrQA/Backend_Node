@@ -11,19 +11,6 @@ var _code   = {
 
 exports.generateResult = function(data, state, err) {
   var result = { 'success': true, };
-  //var result = { 'success': true, 'code': _code[state] };
-/*
-  if (_config.dev) {
-    result['msg'] = state;
-  }
-  
-  // 
-  if (data != undefined || data != null) {
-    // stringify
-    for (var d in data) {
-      data[d] = String(d);
-    }
-  }*/
 
   if (err) {
     var code = _code[err];

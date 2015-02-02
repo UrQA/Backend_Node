@@ -5,21 +5,6 @@ var _fs = require('fs');
 
 var _store = [];
 
-var Store = function(scriptsDir) {
-  this.scripts = {};
-  var self = this;
-  scriptsDir = scriptsDir || '../scripts/lua/';
-  scriptsDir = __dirname + '/' + scriptsDir;
-  var scripts = _fs.readdirSync(scriptsDir);
-  scripts.forEach(function(s) {
-    var key = s.replace('.lua', '');
-    key = key.toLowerCase();
-    console.log('script file(' + scriptsDir + s + ') loaded as key:' + key);
-    self.scripts[key] = _fs.readFileSync(scriptsDir + s, 'utf8');
-  });
-};
-
-
 Store.prototype.getScript = function(name) {
   return this.scripts[name.toLowerCase()];
 };
