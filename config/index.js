@@ -2,7 +2,7 @@
 
 var os = require('os');
 var hostname = os.hostname();
-console.log("hostname:"+ hostname);
+//console.log("hostname:"+ hostname);
 
 if (hostname == 'A12038') {
   // This config is for lhs    
