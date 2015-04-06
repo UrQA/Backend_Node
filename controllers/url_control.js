@@ -16,22 +16,14 @@ var get_cur_time = function() {
     var hours = date.getUTCHours();
     var min = date.getUTCMinutes();
     var sec = date.getUTCSeconds();
-    //# step 1 : make data
-    //# step 1 - 0 : make elementary data
     var curtime = sprintf('%04d-%02d-%02d %02d:%02d:%02d', year, month, day, hours, min, sec);
     return curtime;
 };
 
 exports.connect = function(req, res) {
-    var data = { 'tag':'connect','data': req.body,'date_time': get_cur_time()};
-    
-    //# set queue name for worker and queue
-    /*
-    var client_type = req.query.client_type;
-    var queueName = queueName;
-    if(client_type) queueName = client_type;
-    */
-    async.sequence([  //async.waterfall
+
+    var data = { 'tag':'connect','data': req.body,'date_time': get_cur_time()};    
+    async.sequence([
         function (cb) {
             var ret = mq_pubhandler.publish(queueName, data);
             cb();
@@ -48,15 +40,6 @@ exports.receive_exception = function(req, res) {
     var _id = req.body.instance;
     var version = req.body.version;
     var _data  = {};
-
-    //# set queue name for worker and queue
-    
-    /*
-    var client_type = req.query.client_type;
-    var queueName = queueName;
-    if(client_type) queueName = client_type;
-    */
-
 
     if ( version ){
         _data.tag = 'receive_exception'
@@ -86,14 +69,6 @@ exports.receive_exception = function(req, res) {
 exports.receive_native = function(req, res) {
 
     var data = { 'tag':'receive_native', 'data': req.body.exception ,'log':req.body.console_log.data,'dump_data':req.body.dump_data, 'date_time':get_cur_time()};
-
-    //# set queue name for worker and queue
-    /*
-    var client_type = req.query.client_type;
-    var queueName = queueName;
-    if(client_type) queueName = client_type;
-    */
-
     //console.log("native dump data");
 
     async.sequence([
@@ -110,15 +85,6 @@ exports.receive_native = function(req, res) {
 exports.receive_test_data = function(req, res) {
 
     var data = { 'tag':'receive_native_dump','data': req.body.img, 'date_time':get_cur_time()};
-    //console.log(data.date_time);
-    //console.log(req.body.img)
-
-    //# set queue name for worker and queue
-    /*
-    var client_type = req.query.client_type;
-    var queueName = queueName;
-    if(client_type) queueName = client_type;
-    */
     async.sequence([
         function (cb) {
             mq_pubhandler.publish(queueName, data);
