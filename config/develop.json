@@ -1,14 +1,14 @@
 {
 	"dev": true,
 	"host": "0.0.0.0",
-	"port": 55555,
+	"port": 55556,
 	"server_url": "",
 	"static_url": "",
 	"notice_url": "",
 	"mqExchangeName":"urqa-exchange",
         "mqQueueName":"urqa-queue", 
     "mq": {
-      "host":"127.0.0.1",
+      "host":"10.128.130.12:",
       "port":5672,
       "login":"urqa",
       "password":"!@urqa2014*",
