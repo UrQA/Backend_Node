@@ -4,6 +4,7 @@
 'use strict';
 var gk = require('../common');
 var mq_pubhandler = require('../handler/mq_pubhandler');
+var async = require('async');
 var queueName = gk.config.mqQueueName;
 var sprintf = require("sprintf").sprintf;
 
@@ -30,7 +31,7 @@ exports.connect = function(req, res) {
     var queueName = queueName;
     if(client_type) queueName = client_type;
     */
-    gk.async.sequence([  //async.waterfall
+    async.sequence([  //async.waterfall
         function (cb) {
             var ret = mq_pubhandler.publish(queueName, data);
             cb();
@@ -71,7 +72,7 @@ exports.receive_exception = function(req, res) {
 
 
 
-    gk.async.sequence([
+    async.sequence([
         function (cb) {
             mq_pubhandler.publish(queueName, _data);
             cb();
@@ -95,7 +96,7 @@ exports.receive_native = function(req, res) {
 
     //console.log("native dump data");
 
-    gk.async.sequence([
+    async.sequence([
         function (cb) {
             mq_pubhandler.publish(queueName, data);
             cb();
@@ -118,7 +119,7 @@ exports.receive_test_data = function(req, res) {
     var queueName = queueName;
     if(client_type) queueName = client_type;
     */
-    gk.async.sequence([
+    async.sequence([
         function (cb) {
             mq_pubhandler.publish(queueName, data);
             cb();
@@ -134,7 +135,7 @@ exports.receive_test_data = function(req, res) {
 
 exports.url_redirect = function(req,res) {
     // res.redirect('http://ur-qa.com:9000');
-    gk.async.sequence([
+    async.sequence([
         function (cb) {
             res.writeHead(301,
                 {

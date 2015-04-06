@@ -22,7 +22,7 @@ var gk = {
     dateUtils:require(__dirname + '/utils/date_utils'),
     cipherUtils:require(__dirname + '/utils/cipher_utils'),
     chanceUtils:require(__dirname + '/utils/chance_utils'),
-    async: new (require('pasync')),
+    //async: new (require('pasync')),
     result: function(err) {
         var result = {};
         if (err) {

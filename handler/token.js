@@ -70,7 +70,7 @@ TokenHandler.createAid = function(userid, callback) {
   });
 };
 
-
+/*
 self.initStoreData = function(callback) {
   gk.log.debug('initStoreData');
   var ns = gk.config.redis.namespace;
@@ -98,7 +98,7 @@ self.initStoreData = function(callback) {
     gk.log.info('initStoreData: done');
     callback(null);
   });
-};
+};*/
 
 
 // Get low used store instance id.
