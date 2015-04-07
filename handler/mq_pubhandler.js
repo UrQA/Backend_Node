@@ -29,7 +29,7 @@ process.addListener('exit', function () {
 exports.publish = function(queueName, msg) {
   var retVal;
   retry = retry || 0;
-  if (retry > MAX_RETRY_COUNT){ 
+  if (retry > MAX_RETRY_COUNT){
     return; 
   }
 
@@ -41,6 +41,8 @@ exports.publish = function(queueName, msg) {
     // TODO: binding queue automatically
     _isReady = false;
   }
+  
+  gc(true);
 };
 
 
