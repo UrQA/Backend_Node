@@ -27,6 +27,8 @@ exports.get_key = function(req, res){
 					} );
 
 	});
+	
+	gc(true);
 
 };
 
@@ -64,6 +66,7 @@ exports.req_enc = function( req, res ){
 				res.header('Charset','utf8');
 		        res.jsonp( data );
 			});
+			gc(true);
 		}
 
 	});
