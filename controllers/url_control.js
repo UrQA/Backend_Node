@@ -23,7 +23,7 @@ var get_cur_time = function() {
 exports.connect = function(req, res) {
 
     var data = { 'tag':'connect','data': req.body,'date_time': get_cur_time()};    
-    async.sequence([
+    async.series([
         function (cb) {
             var ret = mq_pubhandler.publish(queueName, data);
             cb();
@@ -55,7 +55,7 @@ exports.receive_exception = function(req, res) {
 
 
 
-    async.sequence([
+    async.series([
         function (cb) {
             mq_pubhandler.publish(queueName, _data);
             cb();
@@ -71,7 +71,7 @@ exports.receive_native = function(req, res) {
     var data = { 'tag':'receive_native', 'data': req.body.exception ,'log':req.body.console_log.data,'dump_data':req.body.dump_data, 'date_time':get_cur_time()};
     //console.log("native dump data");
 
-    async.sequence([
+    async.series([
         function (cb) {
             mq_pubhandler.publish(queueName, data);
             cb();
@@ -85,7 +85,7 @@ exports.receive_native = function(req, res) {
 exports.receive_test_data = function(req, res) {
 
     var data = { 'tag':'receive_native_dump','data': req.body.img, 'date_time':get_cur_time()};
-    async.sequence([
+    async.series([
         function (cb) {
             mq_pubhandler.publish(queueName, data);
             cb();
@@ -101,7 +101,7 @@ exports.receive_test_data = function(req, res) {
 
 exports.url_redirect = function(req,res) {
     // res.redirect('http://ur-qa.com:9000');
-    async.sequence([
+    async.series([
         function (cb) {
             res.writeHead(301,
                 {
