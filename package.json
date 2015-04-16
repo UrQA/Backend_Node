@@ -6,6 +6,7 @@
   "author": "UrQA",
   "dependencies": {
     "node-rest-client": "",
-    "node-rsa": ""
+    "node-rsa": "",
+    "pm2": "^0.12.10"
   }
 }

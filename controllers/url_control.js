@@ -17,7 +17,7 @@ var get_cur_time = function() {
     var min = date.getUTCMinutes();
     var sec = date.getUTCSeconds();
     var curtime = sprintf('%04d-%02d-%02d %02d:%02d:%02d', year, month, day, hours, min, sec);
-    gc(true)
+    //global.gc(true)
     return curtime;
 };
 
