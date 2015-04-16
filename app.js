@@ -10,7 +10,7 @@ var encryptHandler = require('./middleware/encrypt');
 var app = express();
 	app.configure(function() {
 	app.locals.pretty = true;
-	//app.use(express.bodyParser());
+	app.use(express.bodyParser());
 	app.use(require('connect-multiparty')())
 	app.use(express.cookieParser());
 	app.use(express.compress());

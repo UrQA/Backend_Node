@@ -13,6 +13,7 @@ exports.get_key = function(req, res){
 
 
 	var p_key = req.body.public;
+        //console.log('BODY:::: ',req.body);
 
 	enckey_manager.get_key( function( token, basekey ){
 
@@ -20,7 +21,7 @@ exports.get_key = function(req, res){
 		var return_data = { token:token, basekey:basekey };
 		var key = new NodeRSA( p_key, {b: 1024} );
 		var ret_data = key.encrypt( return_data , 'base64', 'utf8' );
-
+                //console.log('ret_data:::: ',ret_data);
 		res.jsonp(  { 
 						result : 'success',
 					  	enc_data : ret_data
@@ -64,7 +65,7 @@ exports.req_enc = function( req, res ){
 		        // raw response
 				res.header('Content-type','application/json');
 				res.header('Charset','utf8');
-		        res.jsonp( data );
+                                res.jsonp( data );
 			});
 			//global.gc(true);
 		}
