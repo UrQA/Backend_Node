@@ -42,7 +42,7 @@ exports.publish = function(queueName, msg) {
     _isReady = false;
   }
   
-  //gc(true);
+  global.gc(true);
 };
 
 
