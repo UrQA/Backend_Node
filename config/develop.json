@@ -2,11 +2,9 @@
 	"dev": true,
 	"host": "0.0.0.0",
 	"port": 55556,
-	"server_url": "",
-	"static_url": "",
-	"notice_url": "",
 	"mqExchangeName":"urqa-exchange",
-        "mqQueueName":"urqa-queue", 
+    "mqQueueName":"urqa-queue", 
+    
     "mq": {
       "host":"10.128.130.12",
       "port":5672,
@@ -15,6 +13,7 @@
       "authMechanism":"AMQPLAIN",
       "vhost":"/"
     },
+	
 	"logging": [
 		{
 		"level": "verbose",
@@ -28,18 +27,5 @@
 		"timestamp": true,
 		"filename": "/dev/null"
 		}
-	],
-	"redis": {
-		"namespace": "dev",
-		"master": [
-		{
-		"host": "127.0.0.1",
-        	"port": 6379,
-        	"pass": "",
-        	"namespace": "dev",
-        	"scripts_dir": "../scripts/lua/"
-        }
-      ]
-    }
-
+	]
 }

@@ -13,12 +13,8 @@ function wrapResponse(result, err) {
 
 var gk = {
     config:require(__dirname + '/config'),
-    log:require(__dirname + '/utils/gklogger'),
     helper:require(__dirname + '/utils/helper'),
-    commonUtils:require(__dirname + '/utils/common_utils'),
-    dateUtils:require(__dirname + '/utils/date_utils'),
     cipherUtils:require(__dirname + '/utils/cipher_utils'),
-    chanceUtils:require(__dirname + '/utils/chance_utils'),
     result: function(err) {
         var result = {};
         if (err) {
