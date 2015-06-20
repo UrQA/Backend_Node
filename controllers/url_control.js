@@ -22,7 +22,7 @@ var get_cur_time = function() {
 };
 
 exports.connect = function(req, res) {
-
+    //console.log("connect Data:" ,  req.body);
     var data = { 'tag':'connect','data': req.body,'date_time': get_cur_time()};    
     async.series([
         function (cb) {
@@ -37,7 +37,7 @@ exports.connect = function(req, res) {
 
 
 exports.receive_exception = function(req, res) {
-    //console.log("exception Data");
+    //console.log("exception Data:" ,  req.body);
     var _id = req.body.instance;
     var version = req.body.version;
     var _data  = {};
