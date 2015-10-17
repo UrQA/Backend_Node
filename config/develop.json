@@ -1,7 +1,7 @@
 {
 	"dev": true,
 	"host": "0.0.0.0",
-	"port": 5005,
+	"port": 50006,
 	"mqExchangeName":"urqa-exchange",
     "mqQueueName":"urqa-queue", 
     
