@@ -1,19 +1,19 @@
 {
 	"dev": true,
 	"host": "0.0.0.0",
-	"port": 50006,
-	"mqExchangeName":"urqa-exchange",
-    "mqQueueName":"urqa-queue", 
-    
+	"port": ,
+	"mqExchangeName":"",
+    "mqQueueName":"",
+
     "mq": {
-      "host":"10.128.130.12",
-      "port":5672,
-      "login":"urqa",
-      "password":"!@urqa2014*",
-      "authMechanism":"AMQPLAIN",
+      "host":"",
+      "port":,
+      "login":"",
+      "password":"",
+      "authMechanism":"",
       "vhost":"/"
     },
-	
+
 	"logging": [
 		{
 		"level": "verbose",
