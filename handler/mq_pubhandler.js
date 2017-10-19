@@ -37,8 +37,11 @@ exports.publish = function(queueName, msg) {
     
     var ex = _queue[queueName];
     console.log("publishing message queueName" , queueName);
-    ex.publish(queueName, msg);
+    var ret = ex.publish(queueName, msg);
     console.log("publishing message-->>",msg);
+    console.log("\n");
+    console.log("publishing ret-->>",ret);
+    
   } else {
     // TODO: binding queue automatically
     _isReady = false;
