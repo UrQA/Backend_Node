@@ -32,14 +32,13 @@ exports.publish = function(queueName, msg) {
   if (retry > MAX_RETRY_COUNT){
     return; 
   }
-
   if (_queue.hasOwnProperty(queueName)) {
     
     var ex = _queue[queueName];
     console.log("publishing message queueName" , queueName);
-    var ret = ex.publish(queueName, msg);
-    console.log("publishing message-->>",msg);
     
+    ex.publish(queueName, msg);
+    console.log("publishing message-->>", msg);
   } else {
     // TODO: binding queue automatically
     _isReady = false;
