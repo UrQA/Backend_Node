@@ -6,7 +6,7 @@ var common = require('../common');
 var async = require('async');
 var sprintf = require("sprintf").sprintf;
 
-var rabbitmq = require('./mqhandler/rabbitmq');
+var rabbitmq = require('../mqhandler/rabbitmq');
 var mqueue = new rabbitmq({"mq":common.config.mq});
 var queueName = config.mqQueueName;
 
