@@ -8,7 +8,7 @@ var sprintf = require("sprintf").sprintf;
 
 var rabbitmq = require('../mqhandler/rabbitmq');
 var mqueue = new rabbitmq({"mq":common.config.mq});
-var queueName = config.mqQueueName;
+var queueName = common.onfig.mqQueueName;
 
 
 var get_cur_time = function() {
