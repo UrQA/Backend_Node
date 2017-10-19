@@ -34,7 +34,7 @@ exports.publish = function(queueName, msg) {
   }
 
   if (_queue.hasOwnProperty(queueName)) {
-    //console.log("publishing message");
+    console.log("publishing message");
     var ex = _queue[queueName];
     ex.publish(queueName, msg);
   } else {

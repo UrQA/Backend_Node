@@ -6,7 +6,7 @@
     "mqQueueName":"urqa-queue", 
     
     "mq": {
-      "host":"45.32.37.223",
+      "host": "amqp://admin:admin@45.32.37.223:5672/",
       "port":5672,
       "login":"admin",
       "password":"admin",
