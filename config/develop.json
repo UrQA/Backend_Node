@@ -4,7 +4,6 @@
 	"port": 50006,
 	"mqExchangeName":"urqa-exchange",
     "mqQueueName":"urqa-queue", 
-    
     "mq": {
       "host": "amqp://admin:admin@45.32.37.223:5672/",
       "port":5672,

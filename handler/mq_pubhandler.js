@@ -34,9 +34,11 @@ exports.publish = function(queueName, msg) {
   }
 
   if (_queue.hasOwnProperty(queueName)) {
-    console.log("publishing message");
+    
     var ex = _queue[queueName];
+    console.log("publishing message queueName" , queueName);
     ex.publish(queueName, msg);
+    console.log("publishing message-->>",msg);
   } else {
     // TODO: binding queue automatically
     _isReady = false;
