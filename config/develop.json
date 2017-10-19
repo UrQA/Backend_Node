@@ -4,19 +4,15 @@
 	"port": 50006,
 	"mqExchangeName":"urqa-exchange",
     "mqQueueName":"urqa-queue", 
- 
-    "mqueue": {
-        "queue": {
-            "host": "amqp://admin:admin@45.32.37.223:5672/",
-            "port": 5672,
-            "login": "admin",
-            "password": "admin",
-            "connectionTimeout": 0,
-            "reconnect": true,
-            "authMechanism":"AMQPLAIN",
-            "vhost":"/"
-        }
-    },    
+    
+    "mq": {
+      "host": "amqp://admin:admin@45.32.37.223:5672/",
+      "port":5672,
+      "login":"admin",
+      "password":"admin",
+      "authMechanism":"AMQPLAIN",
+      "vhost":"/"
+    },
 	
 	"logging": [
 		{
